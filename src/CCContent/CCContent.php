@@ -58,7 +58,8 @@
         //test
         //echo "Id: " . $id; 
         $title = isset($id) ? 'Edit' : 'Create';
-        $this->views->SetTitle("$title content: $id")
+        $this->views->SetTitle("$title content: ".htmlEnt($content['title']))//mos rad
+       // $this->views->SetTitle("$title content: $id")
                     ->AddInclude(__DIR__ . '/edit.tpl.php', array(
                       'user'=>$this->user,
                       'content'=>$content,

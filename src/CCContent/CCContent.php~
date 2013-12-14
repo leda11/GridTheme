@@ -46,12 +46,17 @@
         $form = new CFormContent($content);
         $status = $form->Check();
         if($status === false) {
+          //test
+          //echo "Status:är false <br/>";
           $this->AddMessage('notice', 'The form could not be processed.');
           $this->RedirectToController('edit', $id);
         } else if($status === true) {
+        	//test
+        	//echo "Status:är true <br/>";
           $this->RedirectToController('edit', $content['id']);
         }
-       
+        //test
+        //echo "Id: " . $id; 
         $title = isset($id) ? 'Edit' : 'Create';
         $this->views->SetTitle("$title content: $id")
                     ->AddInclude(__DIR__ . '/edit.tpl.php', array(

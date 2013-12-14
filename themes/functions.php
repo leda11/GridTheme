@@ -43,7 +43,7 @@ function base_url($url=null) {
 */
 
 function create_url($urlOrController=null, $method=null, $arguments=null) {
-  return CHandy::Instance()->request->CreateUrl($urlOrController, $method, $arguments);
+    return CHandy::Instance()->request->CreateUrl($urlOrController, $method, $arguments);
 }
 
 //-----------------------------------------------------------------------------
@@ -53,11 +53,20 @@ function create_url($urlOrController=null, $method=null, $arguments=null) {
 */
 
 	function theme_url($url) {
-		$Ha = CHandy::Instance();
+		$ha = CHandy::Instance();
 		return "{$ha->request->base_url}themes/{$ha->config['theme']['name']}/{$url}";
 	}
 //-----------------------------------------------------------------------------  
-  
+    /**
+    * Check if region has views. Accepts variable amount of arguments as regions.
+    *
+    * @param $region string the region to draw the content in.
+    */
+    function region_has_content($region='default' /*...*/) {
+      return CHandy::Instance()->views->RegionHasView(func_get_args());
+    }  
+    
+ //-----------------------------------------------------------------------------
 /**
 * Return the current url.
 */
@@ -67,15 +76,15 @@ function create_url($urlOrController=null, $method=null, $arguments=null) {
 	}    
  
 //-----------------------------------------------------------------------------    
-
-/**
+	    /**
     * Render all views.
+    *
+    * @param $region string the region to draw the content in.
     */
-    function render_views() {
-    	
-      return CHandy::Instance()->views->Render();
-      
+    function render_views($region='default') {
+      return CHandy::Instance()->views->Render($region);
     }
+    
 //-----------------------------------------------------------------------------    
 
 /**

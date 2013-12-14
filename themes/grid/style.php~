@@ -30,8 +30,6 @@
 //
 // Add config-file if available
 //
-
-
 $configFile = dirname(__FILE__).'/style_config.php';
 $config = array('path' => dirname(__FILE__)."/lessphp/lessc.inc.php");
 if(is_file($configFile)) {
