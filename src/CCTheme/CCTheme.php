@@ -38,6 +38,12 @@
                       'methods' => $items,
                     ));
       }
+      
+      Public function H1H6(){
+      	  $this->views->SetTitle('Typography test')
+                    ->AddInclude(__DIR__ . '/h1h6.tpl.php', array(), 'primary');
+      	  
+      }
 //------------------------------------------------------------------------------
             /**
        * Put content in some regions.
