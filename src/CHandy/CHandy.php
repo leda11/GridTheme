@@ -134,7 +134,9 @@ class CHandy implements ISingleton {
   	
     // is theme enabled?
     if(!isset($this->config['theme'])) { return;} 
-  	  
+  	if(isset($this->config['theme']['data'])) {
+      extract($this->config['theme']['data']);
+    }  
     // Get the paths and settings for the theme
     $themeName    = $this->config['theme']['name'];   
     $themePath    = HANDY_INSTALL_PATH . "/themes/{$themeName}";
